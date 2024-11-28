@@ -34,6 +34,14 @@ def findBookInput() -> None:
     getBooksByKey(key)
 
 def removeBookInput() -> None:
+    
+    #Получение количества книг
+    books_quantity: int = get_books_quantity()
+    #Проверка наличия хотя бы одной книги в базе
+    if books_quantity == 0:
+        print("Нет книг для удаления")
+        return
+    
     book_id: Union[str, int] = input(f"Введите id книги (1-{get_books_quantity()}): ")
     #Проверка введённого id
     if not book_id.isdigit():
